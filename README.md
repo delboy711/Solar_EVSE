@@ -7,44 +7,37 @@ solar power from a PV array.
 Electric cars require an EVSE (Electric Vehicle Supply Equipment) to connect to the domestic electricity supply.  It is the responsibility
  of the EVSE to signal to the car the maximum current it is allowed to draw based on factors like the rating of the domestic wiring, and the cable 
 connecting the vehicle to the EVSE.  A smart controller inside the EVSE called an EPC (Electronic Protocol Controller) performs the function by setting the duty cycle on a 12V 
-pilot signal sent to the car via the charging cable.  One of the leading models of EPC is manufactured by <a href="https://ecoharmony.co.uk/collections/evse-protocol-controller/products/viridianev-tethered-epc?variant=11247832006">Viridian</a> (sometimes labelled as MailPine)
+pilot signal sent to the car via the charging cable.  One of the leading models of EPC is manufactured by <a href="https://ecoharmony.co.uk/collections/evse-protocol-controller/products/viridianev-tethered-epc?variant=11247832006">Viridian</a> (sometimes labelled as MainPine)
  What makes the Viridian EPC interesting to a DIYer is the fact that the available current signalled to the car can be controlled by applying a voltage on a control pin
  on the Viridian EPC.
 
 This project is for an Arduino based device to set that control voltage based on a calculation of available solar power made by an <a href="https://openenergymonitor.org/emon/">OpenEnergyMonitor</a> system, and transmitted
  to the Arduino via a radio link.  The Arduino takes no part in the decision making process. It merely applies the voltage dictated by OpenEnergyMonitor.  The Viridian
- EPC has its own fail safes to prevent an inappropriate current being signalled to the vehicle.
+ EPC has its own fail safes to prevent an unsafe current being signalled to the vehicle.
 
  
    <h2>Hardware required is</h2>
    	<h3>Arduino Uno</h3> - or clone, or stripboard with Atmel328P  No crystal required.  I used a <a href="https://nathan.chantrell.net/20110910/xino-basic-arduino-clone/">Xino</a> which is a minimalist Arduino clone with no usb interface, and I 
-modfied it to run off 3.3V power which has the advantage of allowing finer control of the Digital to Analogue Converted, and means no step down resistors are required
-  for the RFM69CW radio module which requires a 3.3V supply.  By burning a new bootloader into the Atmega328P chip I was able to run it using the 8MHz internal clock and so saved on the cost of a crystal, and reduced power consumption. Power was drawn from 
+modfied it to run off 3.3V power which has the advantage of allowing finer control of the Digital to Analogue Converter, and means no step down resistors are required
+  for the RFM69CW radio module which requires a 3.3V supply.  By burning a new bootloader into the Atmega328P chip I was able to run it using the <a href="https://www.arduino.cc/en/Tutorial/ArduinoToBreadboard">8MHz internal clock</a> and so saved on the cost of a crystal, and reduced power consumption. Power was drawn from 
 the 5V rail of the Viridian EPC itself by wiring in an extra screw connector into the housing of the EPC.
-
-
-
-  	<h3>MPC4725</h3> Digital to Analogue converter module. It is very cheap to buy MCP4725 chips on ebay, ready mounted on a pcb which saves the trouble o trying to solder
+	<h3>MPC4725</h3> Digital to Analogue converter module. It is very cheap to buy MCP4725 chips on ebay, ready mounted on a pcb which saves the trouble o trying to solder
 surface mount components.
-
-  	<h3>RFM69CW</h3> 433MHz or 868MHz radio module. This is the radio module used in the OpenEnergyMonitor project. They are cheap on ebay.
-
-        <h3>Viridian</h3> tethered EPC  https://ecoharmony.co.uk/collections/evse-protocol-controller/products/viridianev-tethered-epc?variant=11247832006
+	<h3>RFM69CW</h3> 433MHz or 868MHz radio module. This is the radio module used in the OpenEnergyMonitor project. They are cheap on ebay.
+	<h3>Viridian</h3> tethered EPC  https://ecoharmony.co.uk/collections/evse-protocol-controller/products/viridianev-tethered-epc?variant=11247832006
                 Viridian make their own EVSEs, but I was unable to buy one at a sensible price so instead I bought a <a href="http://www.rolecserv.com/ev-charging/product/EV-Charging-Points-For-The-Home">Rolec EVSE</a> and replaced the Rolec EPC with a Vididian.
 Since both the Rolec and Viridian EPCs are DIN rail mounted modules this was a simple exchange.
-
- 
-        <h3>EmonPi or Emonbase</h3> from OpenEnergyMonitor.org
+	<h3>EmonPi or Emonbase</h3> from OpenEnergyMonitor.org
   
    <h2>Arduino Libraries required</h2>
-  	Jeelib
-  	Wire
-        Adafruit_MCP4725
+  	Jeelib<br>
+  	Wire<br>
+        Adafruit_MCP4725<br>
   
    <h2>Software required</h2>
-        Emonhub -   Partof EmonPi or Emonbase. Used to transmit commands over radio link
-                    See my GitHub for required patch to emonhub.
-        Node-Red  - Included as part of EmonPi.  Used to calculate Solar PV power PV available.
+        <h3>Emonhub</h3>    Part of EmonPi or Emonbase. Used to transmit commands over radio link.<br>
+                    A patch is required for emonhub to allow it to transmit control messages to Solar_EVSE. See GitHub for required patch to emonhub.
+        <h3>Node-Red</h3>   Included as part of EmonPi.  Used to calculate Solar PV power PV available.
                     See Node-Red folder for an example flow.
   
    <h2>Operation</h2>
