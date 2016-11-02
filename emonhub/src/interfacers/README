@@ -1,0 +1,24 @@
+Patch for emonhub https://github.com/openenergymonitor/emonhub
+to allow messages to be transmitted to remote nodes using MQTT
+
+Messages should be in the format
+
+MQTT Topic :   emonhub/tx/<node number>/values
+MQTT payload   <value1>,<value2>,...<value n>
+
+The configuration file data/emonhub.conf should contain a stanza in the form
+
+[[54]]
+    nodename = solar_EVSE
+    firmware =solar_EVSE
+    hardware = solar_EVSE
+    [[[tx]]]
+        names = dacsetpoint
+        units = C
+        scales = 1
+        datacode = h
+
+
+
+
+where 54 is the chosen node number for solar_EVSE and dacsetpoint is the DAC setting.

@@ -1,0 +1,20 @@
+--- emonhub-emon-pi/src/interfacers/EmonHubJeeInterfacer.py	2016-10-31 13:29:20.000000000 +0000
++++ EmonHubJeeInterfacer.py	2016-11-02 20:29:44.337066327 +0000
+@@ -242,13 +242,13 @@
+             data = f.realdata
+ 
+         payload = ""
+-        for value in data:
+-            if int(value) < 0 or int(value) > 255:
++        for value in range(1, len(data)):
++            if int(data[value]) < 0 or int(data[value]) > 255:
+                 self._log.warning(self.name + " discarding Tx packet: values out of scope" )
+                 return
+-            payload += str(int(value))+","
++            payload += str(int(data[value]))+","
+                 
+-        payload += cmd
++        payload += data[0] + cmd
+         
+         self._log.debug(str(f.uri) + " sent TX packet: " + payload)
+         self._ser.write(payload)

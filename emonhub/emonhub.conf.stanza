@@ -1,0 +1,16 @@
+########################
+# Stanza to add to emonhub.conf
+# for Solar_EVSE
+########################
+
+
+[[54]]
+    nodename = solar_EVSE
+    firmware =solar_EVSE
+    hardware = solar_EVSE
+    [[[tx]]]
+        names = dacsetpoint
+        units = C
+        scales = 1
+        datacode = h
+
