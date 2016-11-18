@@ -20,7 +20,7 @@ This project is for an Arduino based device to set that control voltage based on
    	<h3>Arduino Uno</h3> - or clone, or stripboard with Atmel328P  No crystal required.  I used a <a href="https://nathan.chantrell.net/20110910/xino-basic-arduino-clone/">Xino</a> which is a minimalist Arduino clone with no usb interface, and I 
 modfied it to run off 3.3V power which has the advantage of allowing finer control of the Digital to Analogue Converter, and means no step down resistors are required
   for the RFM69CW radio module which requires a 3.3V supply.  By burning a new bootloader into the Atmega328P chip I was able to run it using the <a href="https://www.arduino.cc/en/Tutorial/ArduinoToBreadboard">8MHz internal clock</a> and so saved on the cost of a crystal, and reduced power consumption. Power was drawn from 
-the 5V rail of the Viridian EPC itself by wiring in an extra screw connector into the housing of the EPC.
+the 5V rail of the Viridian EPC itself by wiring in an extra screw connector into the housing of the EPC. Using a Xino at 8MHz the current requirement is 20mA.
 	<h3>MPC4725</h3> Digital to Analogue converter module. It is very cheap to buy MCP4725 chips on ebay, ready mounted on a pcb which saves the trouble of trying to solder
 surface mount components.
 	<h3>RFM69CW</h3> 433MHz or 868MHz radio module. This is the radio module used in the OpenEnergyMonitor project. They are cheap on ebay.

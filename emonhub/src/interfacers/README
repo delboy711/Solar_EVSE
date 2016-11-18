@@ -1,5 +1,5 @@
 Patch for emonhub https://github.com/openenergymonitor/emonhub
-to allow messages to be transmitted to remote nodes using MQTT
+to allow messages to be transmitted to solar_EVSE using MQTT
 
 Messages should be in the format
 
