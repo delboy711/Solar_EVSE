@@ -17,7 +17,7 @@ This project is for an Arduino based device to set that control voltage based on
 
  
 ## Hardware required is
-### Arduino Uno -![/Images/solar_evse_pcb.jpg](/Images/solar_evse.jpg)
+### Arduino Uno -![/Images/solar_evse_pcb.jpg](/Images/solar_evse_pcb.jpg)
  or clone, or stripboard with Atmel328P  No crystal required.  I used a <a href="https://nathan.chantrell.net/20110910/xino-basic-arduino-clone/">Xino</a> which is a minimalist Arduino clone with no usb interface, and I 
 modfied it to run off 3.3V power which has the advantage of allowing finer control of the Digital to Analogue Converter, and means no step down resistors are required
   for the RFM69CW radio module which requires a 3.3V supply.  By burning a new bootloader into the Atmega328P chip I was able to run it using the <a href="https://www.arduino.cc/en/Tutorial/ArduinoToBreadboard">8MHz internal clock</a> and so saved on the cost of a crystal, and reduced power consumption. Power was drawn from 
