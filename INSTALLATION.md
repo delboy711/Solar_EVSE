@@ -2,14 +2,13 @@
 <h2>Modifying Viridian EPC</h2>
 To avoid having to have a separate power supply for Solar EVSE, it is easy to modify the Viridian EPC to break out 5v and an additional 0V 
 to an additional terminal block.<br>
-![Images/viridian_evse1.jpg](Images/viridian_evse1.jpg)
 <img href="/Images/viridian_evse1.jpg" height=400px>
 On opening the EPC it will be seen that there are plastic inserts blanking off the unused terminal positions.
 A new two position terminal block can be glued to the side of the existing one, and connections made to +5V and 0V positions on the header connector on the pcb.
 <img href="/Images/viridian_evse3.jpg" height=600px>
 The 5V connection is on the bottom right of the header.  A spot of silicon keeps the wires in the header.
 I routed the 5V wire through an 85mA polyfuse to guard against accidental short circuits.<br>
-<h2>Relacing Rolec EPC</h2><img href="Images/solar_evse_install_2.jpg" height=600px>
+<h2>Relacing Rolec EPC</h2><img href="/Images/solar_evse_install_2.jpg" height=600px>
 The Vididian EPC is almost but not quite a pin for pin replacement for the Rolec EPC.
 Live and Neutral wires go to L and N, the Earth wire that went to the E terminal on the Rolec should be connected to the 0V terminal on the Viridian.
 Wires that went to RL1 and RL2 terminals on the Rolec go to to P1 and P2 on the Viridian.<br>
