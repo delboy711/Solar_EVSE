@@ -10,7 +10,7 @@ connecting the vehicle to the EVSE.  A smart controller inside the EVSE called a
 pilot signal sent to the car via the charging cable.  One of the leading models of EPC is manufactured by <a href="https://ecoharmony.co.uk/collections/evse-protocol-controller/products/viridianev-tethered-epc?variant=11247832006">Viridian</a> (sometimes labelled as MainPine)
  What makes the Viridian EPC interesting to a DIYer is the fact that the available current signalled to the car can be controlled by applying a voltage on a control pin
  on the Viridian EPC.
-<img href="Images/solar_evse_pcb.jpg" height=400px
+<img href="/Images/solar_evse_pcb.jpg" height=400px
 This project is for an Arduino based device to set that control voltage based on a calculation of available solar power made by an <a href="https://openenergymonitor.org/emon/">OpenEnergyMonitor</a> system, and transmitted
  to the Arduino via a radio link.  The Arduino takes no part in the decision making process. It merely applies the voltage dictated by OpenEnergyMonitor.  The Viridian
  EPC has its own fail safes to prevent an unsafe current being signalled to the vehicle.
