@@ -31,15 +31,15 @@ Since both the Rolec and Viridian EPCs are DIN rail mounted modules this was a s
 	<h3>EmonPi or Emonbase</h3> from OpenEnergyMonitor.org
   
 ## Arduino Libraries required
-### Jeelib
-### Wire
-### Adafruit_MCP4725
+* **Jeelib**
+* **Wire**
+* **Adafruit_MCP4725**
   
 ## Software required
-### Emonhub
+* **Emonhub**
 Part of EmonPi or Emonbase. Used to transmit commands over radio link.<br>
 A patch is required for emonhub to allow it to transmit control messages to Solar_EVSE. See GitHub for required patch to emonhub.
-### Node-Red
+* **Node-Red**
 Included as part of EmonPi.  Used to calculate Solar PV power PV available.
 See Node-Red folder for an example flow.
   
