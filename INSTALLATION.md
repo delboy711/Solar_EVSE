@@ -21,7 +21,7 @@ Instead only a single LED can be made to work by taking the black wire that went
 From the modified Viridian EPC 5V and 0V are connected to Solar EVSE, and a connection made from the IC terminal to the terminal on Solar EVSE which connects to the output of the DAC.<br>
 ## Testing
 ![/Images/solar_evse_install_1.jpg](/Images/solar_evse_install_1.jpg)
-Once Solar EVSE is installed and powered on with the front face off, then it should be possible to use Node Red to send commands to Solar EVSE to set the DAC Voltage. Use DAC settings between around 850 and 2622.  A multimeter connected between IC and 0V ob the EPC should show the Voltage changing with each command.
+Once Solar EVSE is installed and powered on with the front face off, then it should be possible to use Node Red to send commands to Solar EVSE to set the DAC Voltage. Use DAC settings between around 850 and 2622.  A multimeter connected between IC and 0V on the EPC should show the Voltage changing with each command.
 Once a car is connected you should observe different charging rates.<br>
 Now all that is required is to define a suitable Node Red flow to manage the rate of charge according to available solar energy.  See the NodeRed folder for details.<br>
 
