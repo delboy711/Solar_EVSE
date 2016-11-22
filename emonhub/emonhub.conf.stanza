@@ -4,7 +4,7 @@
 ########################
 
 
-[[54]]
+[[24]]
     nodename = solar_EVSE
     firmware =solar_EVSE
     hardware = solar_EVSE
