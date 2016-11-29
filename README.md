@@ -22,7 +22,7 @@ This project is for an Arduino based device to set that control voltage based on
 modfied it to run off 3.3V power which has the advantage of allowing finer control of the Digital to Analogue Converter, and means no step down resistors are required
   for the RFM69CW radio module which requires a 3.3V supply.  By burning a new bootloader into the Atmega328P chip I was able to run it using the <a href="https://www.arduino.cc/en/Tutorial/ArduinoToBreadboard">8MHz internal clock</a> and so saved on the cost of a crystal, and reduced power consumption. Power was drawn from 
 the 5V rail of the Viridian EPC itself by wiring in an extra screw connector into the housing of the EPC. Using a Xino at 8MHz the current requirement is 20mA.
-* **MPC4725** Digital to Analogue converter module. It is very cheap to buy MCP4725 chips on ebay, ready mounted on a pcb which saves the trouble of trying to solder
+* **MCP4725** Digital to Analogue converter module. It is very cheap to buy MCP4725 chips on ebay, ready mounted on a pcb which saves the trouble of trying to solder
 surface mount components.
 * **RFM69CW** 433MHz or 868MHz radio module. This is the radio module used in the OpenEnergyMonitor project. They are cheap on ebay.
 * **Viridian** <a href="https://ecoharmony.co.uk/collections/evse-protocol-controller/products/viridianev-tethered-epc?variant=11247832006">Tethered EPC</a>  
@@ -49,7 +49,7 @@ See Node-Red folder for an example flow.
    variable is read.  If the variable has msb bit set, then it is a command to set a new default Power on Voltage for the DAC
    to use. If msb bit is zero it is a new command to set a voltage on the DAC.
    The voltage set on the DAC is passed to the Viridian EPC which uses it to vary the duty cycle
-   of the Pilot signal given to an attached electrc
+   of the Pilot signal given to an attached electric
    car, and so regulates the current drawn while charging.<br><br>
 
 Installation notes are [here](INSTALLATION.md)
